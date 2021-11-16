@@ -1,5 +1,4 @@
 import React from 'react';
-import image1 from '../../../image/austromaniya.jpg'
 import image2 from '../../../image/best-italian-cars-ever-12-lamborghini-huracan-evo-rwd-goodwood-07062021.jpg'
 import image3 from '../../../image/EwRjI2.jpg'
 import image4 from '../../../image/mazda-mx-5-900x600-thumbnail.jpg'

@@ -4,7 +4,7 @@ import './Explore.css';
 
 const Explore = () => {
     const [services, setServices] = useState([])
-    const [order, setOrder] = useState([])
+    
     useEffect ( () => {
         fetch('./data.json')
         .then(res => res.json())

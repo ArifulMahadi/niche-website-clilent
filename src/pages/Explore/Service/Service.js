@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Service.css'
 
 const Service = (props) => {
@@ -12,9 +13,9 @@ const Service = (props) => {
             <div className="detail">
                 <h2>{name}</h2>
                 <p>{description}</p>
-                <button 
-                onClick={ () => props.handleAddToOrder(props.service)}
-                >Order Now</button>
+                <Link to="/order">
+                    <button>Order Now</button>
+                </Link>
             </div>
         </div>
     );

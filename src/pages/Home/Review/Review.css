@@ -1,0 +1,16 @@
+.review-container{
+    background-color: teal;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px;
+    color: white;
+    
+}
+.review{
+    width: 15%;
+    text-align: center;
+}
+.review img{
+    width: 40%;
+}

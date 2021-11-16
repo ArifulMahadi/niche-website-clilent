@@ -1,0 +1,15 @@
+.service-container{
+    width: 90%;
+    background-color: teal;
+    margin-bottom: 40px;
+    color: white;
+
+}
+.image img{
+    width: 100%;
+    
+}
+.detail{
+    width: 90%;
+    text-align: center;
+}

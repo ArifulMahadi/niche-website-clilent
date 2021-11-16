@@ -1,12 +1,13 @@
 import React from 'react';
 import Explore from '../../Explore/Explore/Explore';
+import Review from '../Review/Review';
 
-const Services = () => {
+const Reviews = () => {
     return (
         <div>
-            <Explore/>
+            <Review/>
         </div>
     );
 };
 
-export default Services;
+export default Reviews;

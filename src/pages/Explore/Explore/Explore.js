@@ -6,7 +6,7 @@ const Explore = () => {
     const [services, setServices] = useState([])
     
     useEffect ( () => {
-        fetch('./data.json')
+        fetch('http://localhost:5000')
         .then(res => res.json())
         .then (data => setServices(data))
     } ,[]);

@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Button} from '@mui/material';
+
 import './Service.css'
 
 const Service = (props) => {
@@ -14,7 +16,11 @@ const Service = (props) => {
                 <h2>{name}</h2>
                 <p>{description}</p>
                 <Link to="/order">
-                    <button>Order Now</button>
+                <Button 
+                         sx={{width:"75%", m:1}}
+                         variant="contained" 
+                         type="submit"
+                         >Order Now</Button>
                 </Link>
             </div>
         </div>

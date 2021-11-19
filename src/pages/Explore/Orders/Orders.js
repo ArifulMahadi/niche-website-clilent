@@ -1,13 +1,42 @@
 import { Button, Container, Grid, TextField, Typography } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
 import useAuth from '../../../Hooks/useAuth';
 import './Orders.css'
 
 const Orders = () => {
     const {user} = useAuth()
+    const initialInfo = {displayName:user.displayName, email:user.email,phone:''}
+    const [orderInfo,setOrderInfo] = useState(initialInfo)
+    
+    const handleOnBlur = e => {
+        const field = e.target.name;
+        const value = e.target.value;
+        const newInfo = {...orderInfo};
+        newInfo[field] = value;
+        console.log(newInfo)
+        setOrderInfo(newInfo)
+
+    }
     const handleSubmit = e => {
         e.preventDefault()
-        alert('submitting')
+        const orders = {
+            ...orderInfo,    
+        }
+        fetch('http://localhost:5000/orders', {
+            method:'POST',
+            headers:{
+                'content-type':'application/json'
+            },
+            body: JSON.stringify(orders)
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.insertedId){
+                alert('success')   
+            }
+            setOrderInfo('')
+        })
+        // setOrderInfo("")
     }
     return (
         <Container>
@@ -20,13 +49,15 @@ const Orders = () => {
                             sx={{width:"75%", m:1}}
                             id="standard-basic"
                             label="Your Name"
-                             name="name"
+                             name="displayName"
+                             onBlur={handleOnBlur}
                              defaultValue={user.displayName}
                             variant="standard" />
                         <TextField
                             sx={{width:"75%", m:1}}
                             id="standard-basic"
                             label="Your Email"
+                            onBlur={handleOnBlur}
                             defaultValue={user.email}
                              name="email"
                             variant="standard" />
@@ -34,17 +65,19 @@ const Orders = () => {
                             sx={{width:"75%", m:1}}
                             id="standard-basic"
                             label="your adress"
+                            name="adress"
+                            onBlur={handleOnBlur}
                             variant="standard"/>
                         <TextField
                             sx={{width:"75%", m:1}}
                             id="standard-basic"
                             label="your phone number"
+                            name="phone"
                             type = "number"
+                            onBlur={handleOnBlur}
                             variant="standard"/> 
                             <br/>
-                            <Button style={{marginTop:"10px"}} type='submit' variant="contained">Submit</Button>
-
-      
+                            <Button type='submit' style={{marginTop:"10px"}}  variant="contained">Submit</Button>
                     </form>
                     
                 </Grid>

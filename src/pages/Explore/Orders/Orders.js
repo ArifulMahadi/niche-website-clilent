@@ -22,7 +22,7 @@ const Orders = () => {
         const orders = {
             ...orderInfo,    
         }
-        fetch('http://localhost:5000/orders', {
+        fetch('https://fierce-brushlands-25826.herokuapp.com/orders', {
             method:'POST',
             headers:{
                 'content-type':'application/json'
